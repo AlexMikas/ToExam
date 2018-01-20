@@ -55,6 +55,5 @@ void Model::filtration(){
         if(temp.toDouble() < 40)
             count ++;
     }
-    //this->reportString = "count = "+ QString::number(count);
     this->reportString = QString::fromStdString("Температура ниже 40 градусов наблюдается у %1 городов").arg(count);
 }
