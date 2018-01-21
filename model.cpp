@@ -37,13 +37,24 @@ void Model::input(){
     }
 
     QTextStream out(&input);
-
+    //много строк
+    /*
     while(!out.atEnd())
     {
         QString line(out.readLine().simplified());
         QStringList temp = parsing(line);
         records << temp;
     }
+    */
+    //Случай одной строки. Разделитель ;
+    QString line(out.readLine().simplified());
+    QStringList list = line.split(";", QString::SkipEmptyParts);
+    for (int i = 0; i < list.size(); i++)
+    {
+        QStringList temp = parsing(list[i]);
+        records << temp;
+    }
+
 }
 
 void Model::filtration(){
